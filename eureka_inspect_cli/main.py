@@ -93,13 +93,13 @@ def cli(host, port, version, verbose):
         sys.exit(0)
 
     if verbose:
-        click.echo('host: ' + click.style(host, fg=f'yellow', underline=True))
+        click.echo('host: ' + click.style(host, fg='yellow', underline=True))
         click.echo(
-            'port: ' + click.style(f'{port}', fg='yellow', underline=True))
+            'port: ' + click.style('{}'.format(port), fg='yellow', underline=True))
 
         click.echo('---------------------')
 
-    eureka_url = f'http://{host}:{port}/'
+    eureka_url = 'http://{}:{}/'.format(host, port)
 
     if verbose:
         click.echo('eureka: ' + click.style(eureka_url,

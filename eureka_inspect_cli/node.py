@@ -17,7 +17,7 @@ def _status_text(count, status):
     if status == 'UP':
         color = 'green'
 
-    return click.style(status.rjust(STATUS_TEXT_LEN), fg=color) + click.style(f' ({count})'.ljust(STATUS_COUNT_LEN), fg=color)
+    return click.style(status.rjust(STATUS_TEXT_LEN), fg=color) + click.style(' ({})'.format(count).ljust(STATUS_COUNT_LEN), fg=color)
 
 
 class Node(object):
@@ -32,7 +32,6 @@ class Node(object):
 
     def print(self):
         name = self.name
-        status = self.status
         up_instances = self.up_instances
         down_instances = self.down_instances
 
