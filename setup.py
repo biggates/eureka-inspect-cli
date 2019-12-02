@@ -16,7 +16,6 @@ install_requirements = [
     'click >= 7.0',
     'colorama >= 0.4.1',
     'requests >= 2.22.0',
-    'pyquery >= 1.4.1',
 ]
 
 setup(

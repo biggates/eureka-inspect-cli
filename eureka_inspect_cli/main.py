@@ -1,75 +1,53 @@
 import click
 import sys
-from pyquery import PyQuery as pq
 import requests
-import re
 
 from .__init__ import __version__
 from .node import Node
 
-REGEX_STATUS = '<b>(UP|DOWN)</b> \((\d+)\)'
+def parse_eureka_info_json(json):
+    application_root = json['applications']
 
+    parsed_nodes = []
 
-def parse_eureka_info(html):
-    """Parse http response
+    # app -> [up-instances], [down-instances]
+    all_nodes = {}
+    if application_root['application']:
+        for application in application_root['application']:
+            app_name = application['name']
 
-    Arguments:
-        html {str} -- [description]
-    """
+            if app_name not in all_nodes:
+                all_nodes[app_name] = [[], []]
 
-    r = pq(html)
+            for node in application['instance']:
+                instance_id = node['instanceId']
+                status = node['status']
 
-    nodes = []
-    for tr in r('.list-group+h1+table tbody tr'):
-        node = pq(tr)
-        name = node.find('td b')[0].text
-        instances_text = pq(node.find('td')[3]).html()
-        up_instances = []
-        down_instances = []
-
-        # instances = '\n   <b>UP</b> (3) -\n  <a>...'
-        current_instance = up_instances
-        lines = [line.strip() for line in instances_text.splitlines()]
-        lines = list(filter(None, lines))
-        lines = list(filter(lambda l: len(l) > 5, lines))
-        for line in lines:
-            if not len(line):
-                continue
-
-            m = re.match(REGEX_STATUS, line)
-            if m:
-                status = m.group(1)
-                count = int(m.group(2))
-
+                instances = None
+                            
                 if status == 'UP':
-                    current_instance = up_instances
+                    instances = all_nodes[app_name][0]
                 elif status == 'DOWN':
-                    current_instance = down_instances
+                    instances = all_nodes[app_name][1]
+                
+                instances.append(instance_id)
 
-            instance = pq(line, parser='html_fragments')
+    for known_name, known_instances in all_nodes.items():
+        parsed_nodes.append(Node(name=known_name, up_instances=known_instances[0], down_instances=known_instances[1]))
 
-            if not instance:
-                continue
-            if not instance.is_('a'):
-                continue
-
-            if len(instance.text()):
-                current_instance.append(instance.text())
-
-        nodes.append(Node(name, up_instances, down_instances))
-
-    return nodes
-
+    return parsed_nodes
 
 def get_eureka_info(url):
-    """HTTP requests
-
+    """[summary]
+    
     Arguments:
-        url {str} -- [description]
+        url {str} -- eureka server, e.g. 'http://localhost:8761/eureka'
+    
+    Returns:
+        Array of Node -- parsed eureka instances
     """
-
-    r = requests.get(url)
-    return parse_eureka_info(r.text)
+    r = requests.get(url + '/apps/', headers={'Accept': 'application/json'})
+    return parse_eureka_info_json(r.json())
 
 
 @click.command()
@@ -81,8 +59,8 @@ def cli(host, port, version, verbose):
     """[summary]
 
     Arguments:
-        host {str} -- [description]
-        port {int} -- [description]
+        host {str} -- host, e.g. 'localhost'
+        port {int} -- port, e.g. 8671
         version {True} -- [description]
     """
     if verbose:
@@ -99,7 +77,7 @@ def cli(host, port, version, verbose):
 
         click.echo('---------------------')
 
-    eureka_url = 'http://{}:{}/'.format(host, port)
+    eureka_url = 'http://{}:{}/eureka'.format(host, port)
 
     if verbose:
         click.echo('eureka: ' + click.style(eureka_url,
@@ -108,9 +86,12 @@ def cli(host, port, version, verbose):
         click.echo('---------------------')
 
     parsed_nodes = get_eureka_info(eureka_url)
-    for node in parsed_nodes:
-        node.print()
 
+    if parsed_nodes and len(parsed_nodes):
+        for node in parsed_nodes:
+            node.print()
+    else:
+        click.secho('Error, can not retrive Eureka info', fg='red')
 
 if __name__ == '__main__':
     cli()
