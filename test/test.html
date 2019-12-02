@@ -1,0 +1,568 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Eureka</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="eureka/css/wro.css">
+
+  </head>
+
+  <body id="one">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href=""><span></span></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="/lastn">Last 1000 since startup</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid xd-container">
+<h1>System Status</h1>
+<div class="row">
+  <div class="col-md-6">
+    <table id='instances' class="table table-condensed table-striped table-hover">
+            <tr>
+        <td>Environment</td>
+        <td>test</td>
+      </tr>
+      <tr>
+        <td>Data center</td>
+        <td>default</td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table id='instances' class="table table-condensed table-striped table-hover">
+      <tr>
+        <td>Current time</td>
+        <td>2019-12-02T10:10:31 +0800</td>
+      </tr>
+      <tr>
+        <td>Uptime</td>
+        <td>2 days 16:07</td>
+      </tr>
+      <tr>
+        <td>Lease expiration enabled</td>
+        <td>true</td>
+      </tr>
+      <tr>
+        <td>Renews threshold</td>
+        <td>59</td>
+      </tr>
+      <tr>
+        <td>Renews (last min)</td>
+        <td>62</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<h1>DS Replicas</h1>
+<ul class="list-group">
+</ul>
+
+      <h1>Instances currently registered with Eureka</h1>
+      <table id='instances' class="table table-striped table-hover">
+        <thead>
+          <tr><th>Application</th><th>AMIs</th><th>Availability Zones</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+              <tr>
+                <td><b>ADMIN-CONSOLE-WEBAPP</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:1182/actuator/info" target="_blank">192.168.1.233:1182</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>COMMON-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:1596/actuator/info" target="_blank">192.168.1.233:1596</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>COMMON-ADMIN-SERVER</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:8889/actuator/info" target="_blank">192.168.1.233:8889</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>COMMON-CONFIG-SERVER</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:8888/actuator/info" target="_blank">192.168.1.233:8888</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>COMMON-GATEWAY-SERVER</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:9999/actuator/info" target="_blank">192.168.1.233:9999</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>COMMON-WEBAPP</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3253/actuator/info" target="_blank">192.168.1.233:3253</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>DEVICE-CTWING-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:4624/actuator/info" target="_blank">192.168.1.233:4624</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>DEVICE-FEATURE-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3270/actuator/info" target="_blank">192.168.1.233:3270</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>DEVICE-FEATURE-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:4749/actuator/info" target="_blank">192.168.1.233:4749</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>DEVICE-HEJIA-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2914/actuator/info" target="_blank">192.168.1.233:2914</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>DEVICE-ONENET-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:1958/actuator/info" target="_blank">192.168.1.233:1958</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2095/actuator/info" target="_blank">192.168.1.233:2095</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-ANALYZE</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:1718/actuator/info" target="_blank">192.168.1.233:1718</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3517/actuator/info" target="_blank">192.168.1.233:3517</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-DATACOLLECT-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:4572/actuator/info" target="_blank">192.168.1.233:4572</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-DATACOLLECT-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:4788/actuator/info" target="_blank">192.168.1.233:4788</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>G08-NETTY</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2386/actuator/info" target="_blank">192.168.1.233:2386</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>HEJIA-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:1382/actuator/info" target="_blank">192.168.1.233:1382</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>JIANKANG-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3039/actuator/info" target="_blank">192.168.1.233:3039</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>JIANKANG-ANALYZE</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2443/actuator/info" target="_blank">192.168.1.233:2443</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>JIANKANG-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3018/actuator/info" target="_blank">192.168.1.233:3018</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>NEWS-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (2)
+                </td>
+                <td>
+                    <b></b> (2)
+                </td>
+                <td>
+                    <b>UP</b> (2) -
+                        <a href="http://192.168.1.233:3257/actuator/info" target="_blank">192.168.1.233:3257</a>
+,
+                        <a href="http://192.168.1.233:3326/actuator/info" target="_blank">192.168.1.233:3326</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>NEWS-API</b></td>
+                <td>
+                    <b>n/a</b> (2)
+                </td>
+                <td>
+                    <b></b> (2)
+                </td>
+                <td>
+                    <b>UP</b> (2) -
+                        <a href="http://192.168.1.233:3658/actuator/info" target="_blank">192.168.1.233:3658</a>
+,
+                        <a href="http://192.168.1.233:4258/actuator/info" target="_blank">192.168.1.233:4258</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>ONENET-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2655/actuator/info" target="_blank">192.168.1.233:2655</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>ORGANIZATION-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:4431/actuator/info" target="_blank">192.168.1.233:4431</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>ORGANIZATION-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2083/actuator/info" target="_blank">192.168.1.233:2083</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>PASSPORT-ADMIN</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:3235/actuator/info" target="_blank">192.168.1.233:3235</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>PASSPORT-WEBAPP</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.233:2124/actuator/info" target="_blank">192.168.1.233:2124</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>PYTHON-IDENTIFY-API</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                    <b>UP</b> (1) -
+                        <a href="http://192.168.1.236:8877/info" target="_blank">192.168.1.236:python-identify-api:8877</a>
+
+                </td>
+              </tr>
+
+        </tbody>
+      </table>
+
+      <h1>General Info</h1>
+
+      <table id='generalInfo' class="table table-striped table-hover">
+        <thead>
+          <tr><th>Name</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>total-avail-memory</td><td>255mb</td>
+            </tr>
+            <tr>
+              <td>environment</td><td>test</td>
+            </tr>
+            <tr>
+              <td>num-of-cpus</td><td>2</td>
+            </tr>
+            <tr>
+              <td>current-memory-usage</td><td>34mb (13%)</td>
+            </tr>
+            <tr>
+              <td>server-uptime</td><td>2 days 16:07</td>
+            </tr>
+            <tr>
+              <td>registered-replicas</td><td></td>
+            </tr>
+            <tr>
+              <td>unavailable-replicas</td><td></td>
+            </tr>
+            <tr>
+              <td>available-replicas</td><td></td>
+            </tr>
+        </tbody>
+      </table>
+
+      <h1>Instance Info</h1>
+
+      <table id='instanceInfo' class="table table-striped table-hover">
+        <thead>
+          <tr><th>Name</th><th>Value</th></tr>
+        <thead>
+        <tbody>
+            <tr>
+              <td>ipAddr</td><td>192.168.1.233</td>
+            </tr>
+            <tr>
+              <td>status</td><td>UP</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <script type="text/javascript" src="eureka/js/wro.js" ></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+         $('table.stripeable tr:odd').addClass('odd');
+         $('table.stripeable tr:even').addClass('even');
+       });
+    </script>
+  </body>
+</html>
