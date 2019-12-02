@@ -1,55 +1,62 @@
 import click
 import sys
-from requests_html import HTMLSession
+from pyquery import PyQuery as pq
 import requests
+import re
 
 from __init__ import __version__
-
 from node import Node
 
-
-def display(node):
-    """display a node
-
-    Keyword Arguments:
-        name {str} -- Name of the node (default: {''})
-        status {str} -- Status of the node ('UP', 'DOWN') (default: {'UP'})
-        instances {Array of String} -- Known instances (default: {''})
-    """
-    name = node.name
-    status = node.status
-    instances = node.instances
-    print(f'display(name={name}, status={status}, instances={instances})')
-
-    name_text = click.style(name.lower(), fg='yellow')
-
-    style_text = ''
-    if status == 'UP':
-        style_text = click.style(status, fg='green')
-    else:
-        style_text = click.style(status, fg='red')
-
-    instances_text = ''
-
-    click.echo(name_text + '\t' + style_text + '\t' + click.style(instances))
+REGEX_STATUS = '<b>(UP|DOWN)</b> \((\d+)\)'
 
 
-def parse_eureka_info(r):
+def parse_eureka_info(html):
     """Parse http response
 
     Arguments:
-        r {[type]} -- [description]
+        html {str} -- [description]
     """
-    nodes = []
-    for node in r.html.find('.list-group+h1+table tbody tr'):
-        node_name = node.find('td')[0].text
-        node_status_text = node.find('td')[3].text
-        status_parts = node_status_text.split()
-        node_status = status_parts[0]
-        node_instances = status_parts[3]
 
-        nodes.append(Node(name=node_name, status=node_status,
-                          instances=node_instances))
+    r = pq(html)
+
+    nodes = []
+    for tr in r('.list-group+h1+table tbody tr'):
+        node = pq(tr)
+        name = node.find('td b')[0].text
+        instances_text = pq(node.find('td')[3]).html()
+        up_instances = []
+        down_instances = []
+
+        # instances = '\n   <b>UP</b> (3) -\n  <a>...'
+        current_instance = up_instances
+        lines = [line.strip() for line in instances_text.splitlines()]
+        lines = list(filter(None, lines))
+        lines = list(filter(lambda l: len(l) > 5, lines))
+        for line in lines:
+            if not len(line):
+                continue
+
+            m = re.match(REGEX_STATUS, line)
+            if m:
+                status = m.group(1)
+                count = int(m.group(2))
+
+                if status == 'UP':
+                    current_instance = up_instances
+                elif status == 'DOWN':
+                    current_instance = down_instances
+
+            instance = pq(line, parser='html_fragments')
+
+            if not instance:
+                continue
+            if not instance.is_('a'):
+                continue
+
+            if len(instance.text()):
+                current_instance.append(instance.text())
+
+        nodes.append(Node(name, up_instances, down_instances))
 
     return nodes
 
@@ -61,10 +68,8 @@ def get_eureka_info(url):
         url {str} -- [description]
     """
 
-    session = HTMLSession()
-    r = session.get(url)
-
-    return parse_eureka_info(r)
+    r = requests.get(url)
+    return parse_eureka_info(r.text)
 
 
 @click.command()
@@ -109,4 +114,3 @@ def cli(host, port, version, verbose):
 
 if __name__ == '__main__':
     cli()
-    # get_eureka_info('http://192.168.1.233:8761/')

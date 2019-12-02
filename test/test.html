@@ -60,11 +60,11 @@
     <table id='instances' class="table table-condensed table-striped table-hover">
       <tr>
         <td>Current time</td>
-        <td>2019-12-02T10:10:31 +0800</td>
+        <td>2019-12-02T14:56:14 +0800</td>
       </tr>
       <tr>
         <td>Uptime</td>
-        <td>2 days 16:07</td>
+        <td>03:33</td>
       </tr>
       <tr>
         <td>Lease expiration enabled</td>
@@ -72,16 +72,17 @@
       </tr>
       <tr>
         <td>Renews threshold</td>
-        <td>59</td>
+        <td>0</td>
       </tr>
       <tr>
         <td>Renews (last min)</td>
-        <td>62</td>
+        <td>6</td>
       </tr>
     </table>
   </div>
 </div>
 
+    <h4 id="uptime"><font size="+1" color="red"><b>THE SELF PRESERVATION MODE IS TURNED OFF.THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.</b></font></h4>
 
 <h1>DS Replicas</h1>
 <ul class="list-group">
@@ -94,7 +95,30 @@
         </thead>
         <tbody>
               <tr>
-                <td><b>ADMIN-CONSOLE-WEBAPP</b></td>
+                <td><b>APP-1</b></td>
+                <td>
+                    <b>n/a</b> (1)
+                </td>
+                <td>
+                    <b></b> (1)
+                </td>
+                <td>
+                  <b>UP</b> (3) -
+                      <a href="http://192.168.1.99:1408/actuator/info" target="_blank">192.168.1.99:1408</a>
+,
+                      <a href="http://192.168.1.99:4839/actuator/info" target="_blank">192.168.1.99:4839</a>
+,
+                      <a href="http://192.168.1.99:2898/actuator/info" target="_blank">192.168.1.99:2898</a>
+
+                    <font color=red size=+1><b>
+                  <b>DOWN</b> (1) -
+                    </b></font>
+                      <a href="http://192.168.1.99:1136/actuator/info" target="_blank">192.168.1.99:1136</a>
+
+                </td>
+              </tr>
+              <tr>
+                <td><b>APP-2</b></td>
                 <td>
                     <b>n/a</b> (1)
                 </td>
@@ -103,292 +127,12 @@
                 </td>
                 <td>
                     <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:1182/actuator/info" target="_blank">192.168.1.233:1182</a>
+                        <a href="http://192.168.1.99:9999/actuator/info" target="_blank">192.168.1.99:9999</a>
 
                 </td>
               </tr>
               <tr>
-                <td><b>COMMON-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:1596/actuator/info" target="_blank">192.168.1.233:1596</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>COMMON-ADMIN-SERVER</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:8889/actuator/info" target="_blank">192.168.1.233:8889</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>COMMON-CONFIG-SERVER</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:8888/actuator/info" target="_blank">192.168.1.233:8888</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>COMMON-GATEWAY-SERVER</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:9999/actuator/info" target="_blank">192.168.1.233:9999</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>COMMON-WEBAPP</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3253/actuator/info" target="_blank">192.168.1.233:3253</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>DEVICE-CTWING-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:4624/actuator/info" target="_blank">192.168.1.233:4624</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>DEVICE-FEATURE-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3270/actuator/info" target="_blank">192.168.1.233:3270</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>DEVICE-FEATURE-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:4749/actuator/info" target="_blank">192.168.1.233:4749</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>DEVICE-HEJIA-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2914/actuator/info" target="_blank">192.168.1.233:2914</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>DEVICE-ONENET-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:1958/actuator/info" target="_blank">192.168.1.233:1958</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2095/actuator/info" target="_blank">192.168.1.233:2095</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-ANALYZE</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:1718/actuator/info" target="_blank">192.168.1.233:1718</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3517/actuator/info" target="_blank">192.168.1.233:3517</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-DATACOLLECT-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:4572/actuator/info" target="_blank">192.168.1.233:4572</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-DATACOLLECT-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:4788/actuator/info" target="_blank">192.168.1.233:4788</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>G08-NETTY</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2386/actuator/info" target="_blank">192.168.1.233:2386</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>HEJIA-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:1382/actuator/info" target="_blank">192.168.1.233:1382</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>JIANKANG-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3039/actuator/info" target="_blank">192.168.1.233:3039</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>JIANKANG-ANALYZE</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2443/actuator/info" target="_blank">192.168.1.233:2443</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>JIANKANG-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3018/actuator/info" target="_blank">192.168.1.233:3018</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>NEWS-ADMIN</b></td>
+                <td><b>APP-3</b></td>
                 <td>
                     <b>n/a</b> (2)
                 </td>
@@ -397,109 +141,9 @@
                 </td>
                 <td>
                     <b>UP</b> (2) -
-                        <a href="http://192.168.1.233:3257/actuator/info" target="_blank">192.168.1.233:3257</a>
+                        <a href="http://192.168.1.99:1408/actuator/info" target="_blank">192.168.1.99:1408</a>
 ,
-                        <a href="http://192.168.1.233:3326/actuator/info" target="_blank">192.168.1.233:3326</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>NEWS-API</b></td>
-                <td>
-                    <b>n/a</b> (2)
-                </td>
-                <td>
-                    <b></b> (2)
-                </td>
-                <td>
-                    <b>UP</b> (2) -
-                        <a href="http://192.168.1.233:3658/actuator/info" target="_blank">192.168.1.233:3658</a>
-,
-                        <a href="http://192.168.1.233:4258/actuator/info" target="_blank">192.168.1.233:4258</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>ONENET-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2655/actuator/info" target="_blank">192.168.1.233:2655</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>ORGANIZATION-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:4431/actuator/info" target="_blank">192.168.1.233:4431</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>ORGANIZATION-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2083/actuator/info" target="_blank">192.168.1.233:2083</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>PASSPORT-ADMIN</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:3235/actuator/info" target="_blank">192.168.1.233:3235</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>PASSPORT-WEBAPP</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.233:2124/actuator/info" target="_blank">192.168.1.233:2124</a>
-
-                </td>
-              </tr>
-              <tr>
-                <td><b>PYTHON-IDENTIFY-API</b></td>
-                <td>
-                    <b>n/a</b> (1)
-                </td>
-                <td>
-                    <b></b> (1)
-                </td>
-                <td>
-                    <b>UP</b> (1) -
-                        <a href="http://192.168.1.236:8877/info" target="_blank">192.168.1.236:python-identify-api:8877</a>
+                        <a href="http://192.168.1.99:2898/actuator/info" target="_blank">192.168.1.99:2898</a>
 
                 </td>
               </tr>
@@ -515,19 +159,19 @@
         </thead>
         <tbody>
             <tr>
-              <td>total-avail-memory</td><td>255mb</td>
+              <td>total-avail-memory</td><td>999mb</td>
             </tr>
             <tr>
               <td>environment</td><td>test</td>
             </tr>
             <tr>
-              <td>num-of-cpus</td><td>2</td>
+              <td>num-of-cpus</td><td>12</td>
             </tr>
             <tr>
-              <td>current-memory-usage</td><td>34mb (13%)</td>
+              <td>current-memory-usage</td><td>534mb (53%)</td>
             </tr>
             <tr>
-              <td>server-uptime</td><td>2 days 16:07</td>
+              <td>server-uptime</td><td>03:33</td>
             </tr>
             <tr>
               <td>registered-replicas</td><td></td>
@@ -549,7 +193,7 @@
         <thead>
         <tbody>
             <tr>
-              <td>ipAddr</td><td>192.168.1.233</td>
+              <td>ipAddr</td><td>192.168.1.100</td>
             </tr>
             <tr>
               <td>status</td><td>UP</td>
