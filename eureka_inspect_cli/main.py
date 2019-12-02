@@ -4,8 +4,8 @@ from pyquery import PyQuery as pq
 import requests
 import re
 
-from __init__ import __version__
-from node import Node
+from .__init__ import __version__
+from .node import Node
 
 REGEX_STATUS = '<b>(UP|DOWN)</b> \((\d+)\)'
 

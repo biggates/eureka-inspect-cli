@@ -22,7 +22,6 @@ def _status_text(count, status):
 
 class Node(object):
     name = ''
-    status = ''
     up_instances = []
     down_instances = []
 
