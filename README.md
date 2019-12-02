@@ -8,7 +8,7 @@ For now, use:
 
 ```
 $ pip install --upgrade click colorama pyquery requests
-$ pip install -i https://test.pypi.org/simple/ eureka-inspect-cli --no-deps
+$ pip install -i https://test.pypi.org/simple/ eureka-inspect-cli --no-deps --upgrade
 ```
 
 ## Usage

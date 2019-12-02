@@ -50,21 +50,16 @@ def get_eureka_info(url):
     return parse_eureka_info_json(r.json())
 
 
-@click.command()
+@click.command('eureka_inspect')
 @click.option('-h', '--host', default='localhost', help='Eureka host', show_default=True)
 @click.option('-p', '--port', default=8761, help='Eureka port', show_default=True)
 @click.option('-v', '--version', default=False, is_flag=True, help='Display version.')
 @click.option('-V', '--verbose', default=False, is_flag=True, help='Display more info.')
 def cli(host, port, version, verbose):
-    """[summary]
-
-    Arguments:
-        host {str} -- host, e.g. 'localhost'
-        port {int} -- port, e.g. 8671
-        version {True} -- [description]
+    """inspect eureka server and display registered nodes
     """
     if verbose:
-        click.secho('eureka-inspect-cli')
+        click.secho('eureka_inspect')
 
     if version:
         click.secho(__version__, fg='yellow')
