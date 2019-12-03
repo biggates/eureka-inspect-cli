@@ -30,7 +30,7 @@ class Node(object):
         self.up_instances = up_instances
         self.down_instances = down_instances
 
-    def print(self):
+    def display(self):
         name = self.name
         up_instances = self.up_instances
         down_instances = self.down_instances

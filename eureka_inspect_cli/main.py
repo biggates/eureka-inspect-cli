@@ -84,7 +84,7 @@ def cli(host, port, version, verbose):
 
     if parsed_nodes and len(parsed_nodes):
         for node in parsed_nodes:
-            node.print()
+            node.display()
     else:
         click.secho('Error, can not retrive Eureka info', fg='red')
 

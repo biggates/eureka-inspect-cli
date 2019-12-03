@@ -7,7 +7,7 @@ This is a simple tool for checking nodes registered with Netflix [eureka](https:
 For now, use:
 
 ```
-$ pip install --upgrade click colorama pyquery requests
+$ pip install --upgrade click colorama requests
 $ pip install -i https://test.pypi.org/simple/ eureka-inspect-cli --no-deps --upgrade
 ```
 
