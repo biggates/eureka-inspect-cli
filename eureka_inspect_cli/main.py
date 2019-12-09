@@ -1,6 +1,7 @@
 import click
 import sys
 import requests
+from operator import attrgetter
 
 from .__init__ import __version__
 from .node import Node
@@ -17,25 +18,25 @@ def parse_eureka_info_json(json):
             app_name = application['name']
 
             if app_name not in all_nodes:
-                all_nodes[app_name] = [[], []]
+                all_nodes[app_name] = {
+                    'UP': [],
+                    'DOWN': []
+                }
 
             for node in application['instance']:
                 instance_id = node['instanceId']
                 status = node['status']
 
-                instances = None
-                            
-                if status == 'UP':
-                    instances = all_nodes[app_name][0]
-                elif status == 'DOWN':
-                    instances = all_nodes[app_name][1]
+                instances = all_nodes[app_name][status]
                 
                 instances.append(instance_id)
 
     for known_name, known_instances in all_nodes.items():
-        parsed_nodes.append(Node(name=known_name, up_instances=known_instances[0], down_instances=known_instances[1]))
+        known_instances['UP'].sort()
+        known_instances['DOWN'].sort()
+        parsed_nodes.append(Node(name=known_name, up_instances=known_instances['UP'], down_instances=known_instances['DOWN']))
 
-    return parsed_nodes
+    return sorted(parsed_nodes, key=attrgetter('name'))
 
 def get_eureka_info(url):
     """[summary]
@@ -80,12 +81,18 @@ def cli(host, port, version, verbose):
 
         click.echo('---------------------')
 
-    parsed_nodes = get_eureka_info(eureka_url)
+    try:
+        parsed_nodes = get_eureka_info(eureka_url)
 
-    if parsed_nodes and len(parsed_nodes):
-        for node in parsed_nodes:
-            node.display()
-    else:
+        if parsed_nodes and len(parsed_nodes):
+            for node in parsed_nodes:
+                node.display()
+        else:
+            click.secho('No nodes fetched from Eureka', fg='yellow')
+    except requests.exceptions.ConnectionError:
+        click.secho('Error, can not connect to Eureka', fg='red')
+    except Exception as identifier:
+        print("unknown exception: ", identifier)
         click.secho('Error, can not retrive Eureka info', fg='red')
 
 if __name__ == '__main__':
