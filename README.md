@@ -7,6 +7,11 @@ This is a simple tool for checking nodes registered with Netflix [eureka](https:
 For now, use:
 
 ```
+$ pip3 install --upgrade click colorama requests
+$ pip3 install -i https://test.pypi.org/simple/ eureka-inspect-cli --no-deps --upgrade
+```
+
+```
 $ pip install --upgrade click colorama requests
 $ pip install -i https://test.pypi.org/simple/ eureka-inspect-cli --no-deps --upgrade
 ```
@@ -24,3 +29,24 @@ Options:
 
 ```
 
+## Development
+
+### Running from source
+
+```
+python3 -m eureka_inspect_cli.main --verbose
+```
+
+### Packaging
+
+```
+python3 setup.py sdist bdist_wheel
+```
+
+### Distribution
+
+```
+python3 -m twine upload --repository testpypi dist/*
+```
+
+* see https://packaging.python.org/tutorials/packaging-projects/

@@ -27,8 +27,8 @@ class Node(object):
 
     def __init__(self, name='', up_instances=[], down_instances=[]):
         self.name = name
-        self.up_instances = up_instances
-        self.down_instances = down_instances
+        self.up_instances = sorted(up_instances)
+        self.down_instances = sorted(down_instances)
 
     def display(self):
         name = self.name

@@ -13,9 +13,9 @@ with open('eureka_inspect_cli/__init__.py', 'rb') as f:
 description = 'CLI for quickly inspect nodes registered with eureka server'
 
 install_requirements = [
-    'click >= 7.0',
-    'colorama >= 0.4.1',
-    'requests >= 2.22.0',
+    'click >= 7.1.2',
+    'colorama >= 0.4.3',
+    'requests >= 2.24.0',
 ]
 
 setup(
@@ -39,8 +39,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ]
